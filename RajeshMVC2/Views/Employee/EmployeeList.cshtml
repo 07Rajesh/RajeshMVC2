@@ -1,0 +1,38 @@
+﻿@model IEnumerable<RajeshMVC2.ViewModel.EmployeeVM>
+
+@{
+    Layout = "_Layout";
+}
+<table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Mobile</td>
+                <td>Salary</td>
+                <td>Gender</td>
+                <td>Dept</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in Model)
+            {
+            <tr>
+                <td>@emp.Id</td>
+                <td>@emp.Name</td>
+                <td>@emp.Email</td>
+                <td>@emp.Mobile</td>
+                <td>@emp.Salary</td>
+                <td>@emp.Gender</td>
+                <td>@emp.DName</td>
+
+                <td class="text-center">
+                    <a asp-action="EditEmployee" asp-controller="Employee" asp-route-id="@emp.Id" class="btn btn-sm btn-info" onclick="return confirm('Are you to edit this record?')">Edit</a>
+                    <a asp-action="DeleteEmployee" asp-controller="Employee" asp-route-id="@emp.Id" class="btn btn-sm btn-danger" onclick="return confirm('Are you to delete this record?')">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

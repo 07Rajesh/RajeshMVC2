@@ -1,16 +1,3 @@
 ﻿h1{
-    color:orangered;
-}
-nav{
-    height:90px;
-}
-nav ul li{
-    display:inline;
-    padding:12px;
-    background-color:darkcyan;
-}
-nav ul li a{
-    color:#00ff21;
-    text-decoration:none;
-    text-decoration-color:yellow;
+    color:orangered; 
 }

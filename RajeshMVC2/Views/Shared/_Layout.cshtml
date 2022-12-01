@@ -2,21 +2,67 @@
 <head>
     <title></title>
     <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/jquery/jquery.js"></script>
     <script src="~/bootstrap/js/bootstrap.js"></script>
+    <script src="~/bootstrap/js/popper.min.js"></script>
+    <script src="~/bootstrap/js/bootstrap.bundle.js"></script>
     <link href="~/CustomStyle.css" rel="stylesheet" />
 
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="/Home/Index">Home</a></li>
-            <li><a href="/Home/About">About</a></li>
-            <li><a href="/Home/Contact">Contact</a></li>
-            <li><a href="/Home/Blog">Blog</a></li>
-            <li><a href="/Home/Services">Services</a></li>
-        </ul>
+    @*<nav>EmployeeList
+            <ul>
+                <li><a href="/Home/Index">Home</a></li>
+                <li><a href="/Home/About">About</a></li>
+                <li><a href="/Home/Contact">Contact</a></li>
+                <li><a href="/Home/Blog">Blog</a></li>
+                <li><a href="/Home/Services">Services</a></li>
+            </ul>
+        </nav>*@
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/Home/Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Services">Services</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Employees
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/Employee/EmployeeList">Employee List</a></li>
+                            <li><a class="dropdown-item" href="/Employee/CreateEmployee">Create Employee</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
     </nav>
-    <div>
+
+    <div class="container-fluid">
         @RenderBody()
     </div>
 </body>

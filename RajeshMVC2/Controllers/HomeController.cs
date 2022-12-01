@@ -23,8 +23,8 @@ namespace RajeshMVC2.Controllers
             //List<string> Students = new List<string> { "Abhay","Akash","Rajesh","Aryan","Hrithik"};
             //ViewBag.students = Students;
 
-            var employees = DbContext.Employees.ToList();
-            return View(employees);
+          //  var employees = DbContext.Employees.ToList();
+            return View();
         }
         public IActionResult About()
         {

@@ -13,5 +13,6 @@ namespace RajeshMVC2.Models
 
         }
         public DbSet<Employee> Employees { get; set;}
+        public DbSet<Department> Departments { get; set;}
     }
 }
