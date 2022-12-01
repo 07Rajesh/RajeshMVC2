@@ -13,6 +13,7 @@
                 <td>Salary</td>
                 <td>Gender</td>
                 <td>Dept</td>
+                <td>Image</td>
                 <td>Action</td>
             </tr>
         </thead>
@@ -27,7 +28,9 @@
                 <td>@emp.Salary</td>
                 <td>@emp.Gender</td>
                 <td>@emp.DName</td>
-
+                <td>
+                    <img src="~/@emp.Image" height="70" width="70"/>
+                </td>
                 <td class="text-center">
                     <a asp-action="EditEmployee" asp-controller="Employee" asp-route-id="@emp.Id" class="btn btn-sm btn-info" onclick="return confirm('Are you to edit this record?')">Edit</a>
                     <a asp-action="DeleteEmployee" asp-controller="Employee" asp-route-id="@emp.Id" class="btn btn-sm btn-danger" onclick="return confirm('Are you to delete this record?')">Delete</a>

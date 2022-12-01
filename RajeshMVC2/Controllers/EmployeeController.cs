@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using RajeshMVC2.Models;
 using RajeshMVC2.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,10 +14,12 @@ namespace RajeshMVC2.Controllers
     public class EmployeeController : Controller
     {
         public ApplicationDbContext DbContext { get; }
+        public IHostingEnvironment Environment { get; }
 
-        public EmployeeController(ApplicationDbContext dbContext)
+        public EmployeeController(ApplicationDbContext dbContext, IHostingEnvironment environment)
         {
             DbContext = dbContext;
+            Environment = environment;
         }
         public IActionResult EmployeeList()
         {
@@ -31,7 +36,8 @@ namespace RajeshMVC2.Controllers
                             Gender = e.Gender,
                             Salary = e.Salary,
                             Mobile = e.Mobile,
-                            DName = d.Name
+                            DName = d.Name,
+                            Image=e.Image
                         }).ToList();
             return View(emps);
         }
@@ -61,6 +67,10 @@ namespace RajeshMVC2.Controllers
                 em.Dept_Id = Convert.ToInt32(dept);
             }
 
+            var file = Request.Form.Files["Image"];
+            em.Image = UploadFile(file);
+
+
             DbContext.Employees.Add(em);
             DbContext.SaveChanges();
             return RedirectToAction("EmployeeList");
@@ -84,6 +94,14 @@ namespace RajeshMVC2.Controllers
             DbContext.Employees.Update(emp);
             DbContext.SaveChanges();
             return RedirectToAction("EmployeeList");
+        }
+        public string UploadFile(IFormFile formFile)
+        {
+            string p = Environment.WebRootPath;
+            string path = Path.Combine(p, "Images", formFile.FileName);
+            FileStream fs = new FileStream(path,FileMode.CreateNew);
+            formFile.CopyTo(fs);
+            return Path.Combine("Images", formFile.FileName);
         }
     }
 }

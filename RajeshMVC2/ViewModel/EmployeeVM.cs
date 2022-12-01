@@ -14,5 +14,7 @@ namespace RajeshMVC2.ViewModel
         public string Gender { get; set; }
         public decimal Salary { get; set; }
         public string DName { get; set; }
+
+        public string Image { get; set; }
     }
 }

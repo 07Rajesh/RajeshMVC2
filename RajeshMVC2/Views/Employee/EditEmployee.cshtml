@@ -7,7 +7,7 @@
     <div class="col-6 p-3 offset-3">
         <form action="/Employee/EditEmployee" method="post">
             <div class="form-group">
-                <input type="hidden" asp-for="Id"/>
+                <input type="hidden" asp-for="Id" />
                 <label>Employee Name</label>
                 <input type="text" asp-for="Name" class="form-control" />
             </div>
@@ -36,6 +36,10 @@
                     <option value="Other">Other</option>
 
                 </select>
+            </div>
+            <div class="form-group">
+                <label>Employee Image</label>
+                <input type="file" name="Image" accept="jpg/jpeg" />
             </div>
             <div class="form-group mt-3">
                 <input type="submit" value="Update" class="btn btn-info" />

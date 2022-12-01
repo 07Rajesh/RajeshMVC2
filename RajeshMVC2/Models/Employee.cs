@@ -12,6 +12,7 @@ namespace RajeshMVC2.Models
         public string Email { get; set; }
         public string Mobile { get; set; }
         public string Gender { get; set; }
+        public string Image { get; set; }
         public decimal Salary { get; set; }
         public int Dept_Id { get; set; }
     }
