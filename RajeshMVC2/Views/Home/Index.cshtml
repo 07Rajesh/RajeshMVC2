@@ -1,0 +1,44 @@
+﻿@model IEnumerable<RajeshMVC2.Models.Employee>
+@{
+    Layout = "_Layout";
+}
+<h1>Welcome To MVC Application</h1>
+
+@*<h2>message: @ViewBag.msg</h2>*@
+
+@*<ol>
+    @foreach(var stu in ViewBag.students)
+            {
+                <li>@stu</li>
+            }
+</ol>*@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Mobile</td>
+            <td>Salary</td>
+            <td>Gender</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.Id</td>
+                <td>@emp.Name</td>
+                <td>@emp.Email</td>
+                <td>@emp.Mobile</td>
+                <td>@emp.Salary</td>
+                <td>@emp.Gender</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+  
