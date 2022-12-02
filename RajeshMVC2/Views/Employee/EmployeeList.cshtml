@@ -29,11 +29,19 @@
                 <td>@emp.Gender</td>
                 <td>@emp.DName</td>
                 <td>
-                    <img src="~/@emp.Image" height="70" width="70"/>
+                   <a asp-action="DownloadFile" asp-controller="Employee" asp-route-FileName="@emp.Image"> 
+                    <img src="~/@emp.Image" height="70" width="70"/>  </a>
                 </td>
                 <td class="text-center">
-                    <a asp-action="EditEmployee" asp-controller="Employee" asp-route-id="@emp.Id" class="btn btn-sm btn-info" onclick="return confirm('Are you to edit this record?')">Edit</a>
-                    <a asp-action="DeleteEmployee" asp-controller="Employee" asp-route-id="@emp.Id" class="btn btn-sm btn-danger" onclick="return confirm('Are you to delete this record?')">Delete</a>
+                    <a asp-action="EditEmployee" asp-controller="Employee" asp-route-id="@emp.Id" class="btn btn-sm btn-info"
+                       onclick="return confirm('Are you to edit this record?')">
+                        <i class="fa fa-edit"></i>
+                    </a>
+
+                    <a asp-action="DeleteEmployee" asp-controller="Employee" asp-route-id="@emp.Id" 
+                       class="btn btn-sm btn-danger" onclick="return confirm('Are you to delete this record?')">
+                        <i class="fa fa-trash"></i>
+                    </a>
                 </td>
             </tr>
             }
