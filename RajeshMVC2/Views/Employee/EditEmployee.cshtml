@@ -37,7 +37,17 @@
 
                 </select>
             </div>
+            <div class="form-group">
+                <label>Employee Departments</label>
+                <select asp-for="Dept_Id" class="form-control">
+                    <option value="">Select</option>
+                    @foreach (var d in ViewBag.dept)
+                    {
+                        <option value="@d.Id">@d.Name</option>
+                    }
 
+                </select>
+            </div>
             <div class="form-group">
                 <label>Employee Image</label>
                 <input type="file" name="Image" accept="jpg/jpeg" />

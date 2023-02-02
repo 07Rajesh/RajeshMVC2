@@ -9,21 +9,28 @@
             <div class="form-group">
                 <label>Employee Name</label>
                 <input type="text" asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label>Employee Email</label>
                 <input type="text" asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+
             </div>
 
             <div class="form-group">
                 <label>Employee Mobile Number</label>
                 <input type="text" asp-for="Mobile" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+
             </div>
 
             <div class="form-group">
                 <label>Employee Salary</label>
-                <input asp-for="Salary" class="form-control" />
+                <input asp-for="Salary" class="form-control" type="number"/>
+                <span asp-validation-for="Salary" class="text-danger"></span>
+
             </div>
 
             <div class="form-group">
@@ -35,6 +42,8 @@
                     <option value="Other">Other</option>
 
                 </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+
             </div>
             <div class="form-group">
                 <label>Employee Departments</label>
@@ -44,8 +53,11 @@
                     {
                         <option value="@d.Id">@d.Name</option>
                     }
+                    <span asp-validation-for="Dept_Id" class="text-danger"></span>
 
                 </select>
+             <span asp-validation-for="Dept_Id" class="text-danger"></span>
+
             </div>
 
             <div class="form-group">

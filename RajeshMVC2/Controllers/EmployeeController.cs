@@ -50,7 +50,7 @@ namespace RajeshMVC2.Controllers
        [HttpPost]
         public IActionResult CreateEmployee(Employee employee)
         {
-
+            ViewBag.dept = DbContext.Departments.ToList();
             Employee em = new Employee();
             em.Name = Request.Form["Name"];
             em.Email = Request.Form["Email"];
@@ -59,6 +59,15 @@ namespace RajeshMVC2.Controllers
             var salary = Request.Form["Salary"];
             var dept = Request.Form["Dept_Id"];
 
+            if (!ModelState.IsValid)
+            {
+             
+                return View(em);
+            }
+            if (DbContext.Employees.Any(e => e.Email == em.Email)) {
+                ModelState.AddModelError("Email", "This Email is already registerd please try another Email Address!");
+                return View(em);
+            }
             if (!string.IsNullOrEmpty(salary))
             {
                 em.Salary = Convert.ToDecimal(salary);
@@ -93,6 +102,7 @@ namespace RajeshMVC2.Controllers
         }
         public IActionResult EditEmployee(int id)
         {
+            ViewBag.dept = DbContext.Departments.ToList();
             var emp = DbContext.Employees.SingleOrDefault(e => e.Id == id);
             return View(emp);
         }
